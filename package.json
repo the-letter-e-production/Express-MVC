@@ -1,0 +1,29 @@
+{
+  "name": "express_mvc",
+  "version": "1.0.0",
+  "description": "MVC Framework built on express",
+  "main": "index.js",
+  "dependencies": {
+    "extend": "^2.0.1",
+    "fs": "^0.0.2",
+    "express": "^4.12.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-letter-e-production/Express-MVC"
+  },
+  "keywords": [
+    "express",
+    "mvc"
+  ],
+  "author": "The Letter E Production",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/the-letter-e-production/Express-MVC/issues"
+  },
+  "homepage": "https://github.com/the-letter-e-production/Express-MVC"
+}
