@@ -6,7 +6,8 @@
   "dependencies": {
     "extend": "^2.0.1",
     "fs": "^0.0.2",
-    "express": "^4.12.4"
+    "express": "^4.12.4",
+    "morgan": "~1.6.0"
   },
   "devDependencies": {},
   "scripts": {
