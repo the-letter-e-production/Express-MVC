@@ -8,7 +8,9 @@
     "fs": "^0.0.2",
     "express": "^4.12.4",
     "morgan": "~1.6.0",
-    "passport": "~0.2.2"
+    "passport": "~0.2.2",
+    "http": "0.0.0",
+    "finalhandler": "~0.4.0"
   },
   "devDependencies": {},
   "scripts": {
