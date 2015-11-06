@@ -97,8 +97,8 @@ router.addRoute('User Profile', 'GET', '/user/profile');
 router.addRoute('Other User Profile', 'GET', 'user/profile/:uid');
 ```
 
-**Multiple Routers**
-With Express MVC you can serve multiple routers on from different ports easily from one app file
+**Multiple Routers**:
+With Express MVC you can serve multiple routers from different ports easily with one app file
 ```
 router_a = new emvc.Router;
 router_b = new emvc.Router;
