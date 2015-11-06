@@ -154,8 +154,9 @@ app.static('static/views', '/views'); //./static/views -> /views
 ## Middleware ##
 We have simply exposed the standard middleware implementation from Express.JS and you can use it as you normally would...
 ```
-app.use(function(req, res){
+app.use(function(req, res, next){
     //do middleware stuff here...
+    next();
 });
 ```
 
