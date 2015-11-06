@@ -54,6 +54,16 @@ router.addRoute('Home', 'GET', '/', function(req, res){
 });
 ```
 
+**Start Listening**:
+```
+/**
+ *
+ * Listen on Port 80
+ *
+ */
+app.listen(router, 80);
+```
+
 **Special Routing**:
 You are not required to provide a callback function to `.addRoute`, in fact, there are two alternate options...
 
@@ -61,6 +71,7 @@ You are not required to provide a callback function to `.addRoute`, in fact, the
 
  1. Controller path
  2. **Magic** Controller's
+ 3. Multiple Routers
 
 ## Advanced Routing ##
 All controllers are assumed to be in the app root in a directory called, `controllers`, this is the only restriction of controllers locations.
@@ -84,6 +95,26 @@ router.addRoute('User Profile', 'GET', '/user/profile');
 
 //controllers/User/Profile.js
 router.addRoute('Other User Profile', 'GET', 'user/profile/:uid');
+```
+
+**Multiple Routers**
+With Express MVC you can serve multiple routers on from different ports easily from one app file
+```
+router_a = new emvc.Router;
+router_b = new emvc.Router;
+
+router_a.addRoute('Home', 'GET', '/', function(req, res){
+    res.write("Homepage A!");
+    res.end();
+});
+
+router_b.addRoute('Home', 'GET', '/', function(req, res){
+    res.write("Homepage B!");
+    res.end();
+});
+
+app.listen(router_a, 8080);
+app.listen(router_b, 8081);
 ```
 
 ## Controllers ##
