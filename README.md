@@ -46,12 +46,18 @@ app = emvc.App; //access express app proxy instance
 ```
 /**
  *
- * Add Index Route
+ * Create a route
+ *
  */
-router.addRoute('Home', 'GET', '/', function(req, res){
-    res.write("It's your homepage!");
-    res.end();
+var home_route = new router.Route('GET', '/', function(req, res){
+    res.write("Welcome home!");
 });
+
+/**
+ *
+ * Add Route to Router
+ */
+router.addRoute(home_route);
 ```
 
 **Start Listening**:
@@ -65,7 +71,7 @@ app.listen(router, 80);
 ```
 
 **Special Routing**:
-You are not required to provide a callback function to `.addRoute`, in fact, there are two alternate options...
+You are not required to provide a callback function to the `Route` object, in fact, there are two alternate options...
 
  
 
@@ -79,7 +85,7 @@ All controllers are assumed to be in the app root in a directory called, `contro
 **Controller Path**:
 Look for `./controllers/Home.js`
 ```
-router.addRoute('Home', 'GET', '/', '/Home.js');
+new router.Route('GET', '/', '/Home.js');
 ```
 
 **Magic Controllers**:
@@ -88,13 +94,13 @@ Magic controllers follow a special syntax based on your route... the last segmen
 Examples
 ```
 //controllers/User.js
-router.addRoute('User', 'GET', '/user');
+new router.Route('GET', '/user');
 
 //controllers/User/Profile.js
-router.addRoute('User Profile', 'GET', '/user/profile');
+new router.Route('User Profile', 'GET', '/user/profile');
 
 //controllers/User/Profile.js
-router.addRoute('Other User Profile', 'GET', 'user/profile/:uid');
+new router.Route('GET', 'user/profile/:uid');
 ```
 
 **Multiple Routers**:
@@ -103,15 +109,15 @@ With Express MVC you can serve multiple routers from different ports easily with
 router_a = new emvc.Router;
 router_b = new emvc.Router;
 
-router_a.addRoute('Home', 'GET', '/', function(req, res){
+router_a.addRoute(new router.Route('GET', '/', function(req, res){
     res.write("Homepage A!");
     res.end();
-});
+}));
 
-router_b.addRoute('Home', 'GET', '/', function(req, res){
+router_b.addRoute(new router.Route('GET', '/', function(req, res){
     res.write("Homepage B!");
     res.end();
-});
+}));
 
 app.listen(router_a, 8080);
 app.listen(router_b, 8081);
@@ -122,9 +128,9 @@ Controllers are created in the same way as an express controller using the `func
 
 Take for example, the following routing setup
 ```
-router.addRoute('Get User', 'GET', '/user');
-router.addRoute('Create User', 'POST', '/user');
-router.addRoute('Delete User', 'DELETE', '/user');
+router.addRoute(new router.Route('GET', '/user'));
+router.addRoute(new router.Route('POST', '/user'));
+router.addRoute(new router.Route('DELETE', '/user'));
 ```
 
 All of the routes above will share the same magic controller...so **HOW** do we determine functionality for each method? Lets see below...
@@ -183,11 +189,37 @@ app.static('static/views', '/views'); //./static/views -> /views
 ```
 
 ## Middleware ##
-We have simply exposed the standard middleware implementation from Express.JS and you can use it as you normally would...
+We have simply exposed the standard middleware implementation from Express.JS and you can use it as you normally would at the app and router level...
 ```
+//app middleware
 app.use(function(req, res, next){
     //do middleware stuff here...
     next();
+});
+
+//router middleware
+router.use(function(req, res, next){
+    //do middleware stuff here...
+    next();
+});
+```
+
+*NOTE:* Router middleware executes in the order it is added in relationship to the routes and will not execute after a controller _UNLESS_ you pass the next argument to the controller callback.
+```
+router.use(function(req, res, next){
+    //runs before route
+    next(); //go to route
+});
+router.addRoute(new router.Route('GET', '/', function(req, res, next){
+    //the route!
+    res.write("Welcome home!");
+    res.end();
+    
+    next(); //if you don't call next, the following middleware will not execute
+});
+router.use(function(req, res, next){
+    //runs after the route
+    next(); //continue routing after this
 });
 ```
 
