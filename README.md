@@ -1,5 +1,9 @@
 Express MVC
 =======
+## !!WARNING!! ##
+*MAJOR CHANGES TO ROUTING IN THE NEWEST RELEASE (2.0.0, routerware) PLEASE READ DOCS CAREFULLY*
+
+
 ## Versions ##
  1. **npm** - *current stable build*
  2. **master** - *old stable build*
