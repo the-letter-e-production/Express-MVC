@@ -31,6 +31,7 @@ Express MVC
 ```
 var ExpressMVC = require('express_mvc'), //create mvc object
 emvc = new ExpressMVC({ //initialize mvc object + options
+    port: 80, //serve app on port 80
     access_logging: true, //turn on access logging
     access_log_dir: './logs', //set logs directory
     bubble_unhandled: true, //bubble errors
@@ -64,14 +65,24 @@ var home_route = new router.Route('GET', '/', function(req, res){
 router.addRoute(home_route);
 ```
 
+**Add Router to App**
+```
+/**
+ *
+ * Add Router
+ *
+ */
+app.addRouter(router);
+```
+
 **Start Listening**:
 ```
 /**
  *
- * Listen on Port 80
+ * Listen
  *
  */
-app.listen(router, 80);
+app.listen();
 ```
 
 **Special Routing**:
@@ -108,24 +119,28 @@ new router.Route('GET', 'user/profile/:uid');
 ```
 
 **Multiple Routers**:
-With Express MVC you can serve multiple routers from different ports easily with one app file
+With Express MVC you can serve multiple routers from different paths easily with one app file
 ```
-router_a = new emvc.Router;
-router_b = new emvc.Router;
+router_a = new emvc.Router('/a');
+router_b = new emvc.Router('/b');
 
-router_a.addRoute(new router.Route('GET', '/', function(req, res){
+router_a.addRoute(new router.Route('GET', '/index', function(req, res){ //browse to: /a/index
     res.write("Homepage A!");
     res.end();
 }));
 
-router_b.addRoute(new router.Route('GET', '/', function(req, res){
+router_b.addRoute(new router.Route('GET', '/index', function(req, res){ //browse to: /b/index
     res.write("Homepage B!");
     res.end();
 }));
 
-app.listen(router_a, 8080);
-app.listen(router_b, 8081);
+app.addRouter(router_a);
+app.addRouter(router_b);
+
+app.listen();
 ```
+
+__NOTE:__ Router middleware is executed across all routers in order
 
 ## Controllers ##
 Controllers are created in the same way as an express controller using the `function(req, res)` syntax, with 1 subtle difference... method grouping.
