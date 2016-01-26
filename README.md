@@ -140,8 +140,6 @@ app.addRouter(router_b);
 app.listen();
 ```
 
-__NOTE:__ Router middleware is executed across all routers in order
-
 ## Controllers ##
 Controllers are created in the same way as an express controller using the `function(req, res)` syntax, with 1 subtle difference... method grouping.
 
