@@ -30,7 +30,7 @@ Express MVC
 **Create a basic mvc bootstrap**:
 ```
 var ExpressMVC = require('express_mvc'), //create mvc object
-emvc = new ExpressMVC({ //initialize mvc object + options
+app = new ExpressMVC.App({ //initialize mvc object + options
     port: 80, //serve app on port 80
     access_logging: true, //turn on access logging
     access_log_dir: './logs', //set logs directory
@@ -43,8 +43,8 @@ emvc = new ExpressMVC({ //initialize mvc object + options
         }
     }
 }),
-router = new emvc.Router, //create router instance
-app = emvc.App; //access express app proxy instance
+router = new ExpressMVC.Router, //create router instance
+util = ExpressMVC.Util; //access express mvc utils
 ```
 
 **Build your first route**:
@@ -121,8 +121,8 @@ new router.Route('GET', 'user/profile/:uid');
 **Multiple Routers**:
 With Express MVC you can serve multiple routers from different paths easily with one app file
 ```
-router_a = new emvc.Router('/a');
-router_b = new emvc.Router('/b');
+router_a = new ExpressMVC.Router('/a');
+router_b = new ExpressMVC.Router('/b');
 
 router_a.addRoute(new router.Route('GET', '/index', function(req, res){ //browse to: /a/index
     res.write("Homepage A!");
@@ -239,6 +239,32 @@ router.use(function(req, res, next){
     next(); //continue routing after this
 });
 ```
+
+##Utilities##
+ExpressMVC comes with some nifty utilities that are used internally and we've made available for consumption. These utilities will continue to grow as needed. Check out the current utilities below:
+
+```
+var dir_util = ExpressMVC.Util.dir; //Directory and path based utilities
+    dir_util.approot(); //get the path of the application root
+
+var exception util = ExpressMVC.Util.exception; //Exception handling utilities
+    throw exception_util.factory('default', 'My error here!'); //throws a new exception of type 'Default Exception'
+    app.use(exception.util.middleware); //handles exceptions thrown by the exception util and makes crashes the app when necessary
+```
+
+*Exception Util in depth...*
+
+```
+throw exception_util.factory(type, message, code, scope, safe);
+```
+
+- _type:_ Exception type (default, database or http). If you don't specify an ExpressMVC predefined type, you can instead provide a path (My/Custom/Error, looks for approot/exceptions/My/Custom/Error.js)
+- _message:_ The error message logged to console and sometimes displayed to the end user
+- _code:_ The http code to send to the end user (200, 301, 403, 404, 500, etc...)
+- _scope:_ The scope of the error (public,private). Public scope will show the error message to the end user and private will show an ambiguous error message.
+- _safe:_ A boolean value telling the middleware if it's safe to let your app persist or not. For errors that are minor and you know they are safe, set to true to avoid restarting your app, otherwise set to false and the app will crash
+
+
 
 ## Questions, Comments ##
 We hope this documentation is sufficient to get you started with Express MVC. However, if you have any questions or require help please open a ticket on [GitHub](https://github.com/the-letter-e-production/Express-MVC)
