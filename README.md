@@ -18,6 +18,8 @@ Express MVC
  5. Views w/ EJS
  6. Static Resources
  7. Middleware
+ 8. Utilities
+ 9. Unit Testing Support via Intern
 
 
 ----------
@@ -240,7 +242,7 @@ router.use(function(req, res, next){
 });
 ```
 
-##Utilities##
+## Utilities ##
 ExpressMVC comes with some nifty utilities that are used internally and we've made available for consumption. These utilities will continue to grow as needed. Check out the current utilities below:
 
 ```
@@ -263,6 +265,20 @@ throw exception_util.factory(type, message, code, scope, safe);
 - _code:_ The http code to send to the end user (200, 301, 403, 404, 500, etc...)
 - _scope:_ The scope of the error (public,private). Public scope will show the error message to the end user and private will show an ambiguous error message.
 - _safe:_ A boolean value telling the middleware if it's safe to let your app persist or not. For errors that are minor and you know they are safe, set to true to avoid restarting your app, otherwise set to false and the app will crash
+
+
+## Unit Testing Support ##
+Here at ExpressMVC we are working on making your CI lifecycle easier than ever and we've started by adding InternJS awareness to our Directory Utility. Currently `ExpressMVC.Util.dir.approot()` pulls the approot by using process.argv[1], which we've found is reliable in most circumstances, however when running unit tests with Intern that path becomes the location of the intern-client file and breaks all of our approot() dependencies.
+
+To fix the issue simply add a `path` argument to your intern configuration and ExpressMVC will override approot accordingly!
+
+```
+//INTERN EXAMPLE
+./node_modules/.bin/intern-client config=tests/intern.js path=/absolute/path/to/my/app
+``` 
+
+That's all there is to it! Now during your tests, ExpressMVC.Util.dir.approot() will return `/absolute/path/to/my/app`. Enjoy increased code coverage with [Intern](https://theintern.github.io/) today!
+
 
 
 
