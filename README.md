@@ -268,9 +268,9 @@ throw exception_util.factory(type, message, code, scope, safe);
 
 
 ## Unit Testing Support ##
-Here at ExpressMVC we are working on making your CI lifecycle easier than ever and we've started by adding InternJS awareness to our Directory Utility. Currently ExpressMVC.Util.dir.approot() pulls the approot by using process.argv[1], which we've found is reliable in most circumstances, however when running unit tests with Intern that path becomes the location of the intern-client file and break all of our approot() dependencies.
+Here at ExpressMVC we are working on making your CI lifecycle easier than ever and we've started by adding InternJS awareness to our Directory Utility. Currently `ExpressMVC.Util.dir.approot()` pulls the approot by using process.argv[1], which we've found is reliable in most circumstances, however when running unit tests with Intern that path becomes the location of the intern-client file and breaks all of our approot() dependencies.
 
-To fix the issue simply add a `path` argument to your intenr configuration and ExpressMVC will override approot accordingly!
+To fix the issue simply add a `path` argument to your intern configuration and ExpressMVC will override approot accordingly!
 
 ```
 //INTERN EXAMPLE
