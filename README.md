@@ -1,4 +1,4 @@
-Express MVC ![build status](https://api.travis-ci.org/the-letter-e-production/Express-MVC.svg?branch=edge)
+Express MVC ![build status](https://api.travis-ci.org/the-letter-e-production/Express-MVC.svg?branch=npm)
 =======
 ## !!WARNING!! ##
 *MAJOR CHANGES TO ROUTING IN THE NEWEST RELEASES (2.0.0 - 4.0.0) PLEASE READ DOCS CAREFULLY*
