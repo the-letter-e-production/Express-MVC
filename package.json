@@ -11,12 +11,14 @@
     "finalhandler": "~0.4.1",
     "fs": "^0.0.2",
     "http": "0.0.0",
+    "intern": "^3.0.6",
     "morgan": "~1.6.0",
-    "passport": "~0.2.2"
+    "passport": "~0.2.2",
+    "q": "^1.4.1"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./test"
   },
   "repository": {
     "type": "git",
