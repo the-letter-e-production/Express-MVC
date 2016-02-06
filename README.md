@@ -3,10 +3,6 @@ Express MVC
 
 ![build status](https://api.travis-ci.org/the-letter-e-production/Express-MVC.svg?branch=edge)
 
-## !!WARNING!! ##
-*MAJOR CHANGES TO ROUTING IN THE NEWEST RELEASES (2.0.0 - 4.0.0) PLEASE READ DOCS CAREFULLY*
-
-
 ## Versions ##
  1. **npm** - *current stable build*
  2. **master** - *old stable build*
@@ -17,12 +13,11 @@ Express MVC
  1. Advanced routing
  2. Controllers
  3. Access logging
- 4. Error bubbling
- 5. Views w/ EJS
- 6. Static Resources
- 7. Middleware
- 8. Utilities
- 9. Unit Testing Support via Intern
+ 6. Views w/ EJS
+ 7. Static Resources
+ 8. Middleware
+ 9. Utilities
+ 10. Unit Testing Support via Intern
 
 
 ----------
@@ -37,10 +32,9 @@ Express MVC
 var ExpressMVC = require('express_mvc'), //create mvc object
 app = new ExpressMVC.App({ //initialize mvc object + options
     port: 80, //serve app on port 80
+    ip: '127.0.0.1', //optionally bind the ip to a specific ip
     access_logging: true, //turn on access logging
     access_log_dir: './logs', //set logs directory
-    bubble_unhandled: true, //bubble errors
-                            //& crash app
     parse_body: { //allow body parsing
         json: true, //json in body, okay
         urlencoded: { //urlencoded body, okay
@@ -181,11 +175,6 @@ Both syntax will work without any configuration by you!
 Access logging is managed by [morgan](https://github.com/expressjs/morgan%20morgan)
 
 Currently access logging does not offer much customization, but more may be added upon request
-
-## Error Bubbling ##
-One of the minor annoyances that can be experienced with Express.JS is errors getting printed out to  your screen and your app not crashing. If this bothers you, simply turn on `bubble_unhandled` in your app options object. This will allow you to grab these errors with the [uncaughtException](https://nodejs.org/api/process.html#process_event_uncaughtexception) event. You can then observe the error and make final decisions before crashing your app, or simply just let your app crash and recover.
-
-**NOTE**: *Many developers believe that using the uncaughtException event is unsafe and may leave your app in and unstable state. Please be sure you know what you are doing before persisting an app in this state.*
 
 ## Views w/ EJS ##
 Currently Express MVC is set up to work with EJS by default and we've made it quite easy to do. Simply add the following to your app...
