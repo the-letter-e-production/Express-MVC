@@ -1,7 +1,7 @@
 Express MVC 
 =======
 
-![build status](https://api.travis-ci.org/the-letter-e-production/Express-MVC.svg?branch=edge)
+![build status](https://api.travis-ci.org/the-letter-e-production/Express-MVC.svg?branch=npm)
 
 ## Versions ##
  1. **npm** - *current stable build*
