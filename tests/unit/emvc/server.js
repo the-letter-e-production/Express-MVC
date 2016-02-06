@@ -9,7 +9,14 @@ define(function (require) {
     var ExpressMVC = require('intern/dojo/node!../../../index');
     var app = new ExpressMVC.App({
         port: 3000,
-        access_logging: false
+        access_logging: true,
+        access_log_dir: '/tmp',
+	    parse_body: {
+       	    json: true,
+            urlencoded: {
+                extended: true
+            }
+        }
     });
     var router;
     var route;
