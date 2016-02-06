@@ -3,6 +3,9 @@ define(function (require) {
     var assert = require('intern/chai!assert');
 
     var ExpressMVC;
+    var app,
+        router,
+        util;
     registerSuite({
         name: 'Express MVC',
         'Can Require': function () {
