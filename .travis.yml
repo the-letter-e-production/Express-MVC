@@ -8,3 +8,7 @@ deploy:
     email: $NPM_AUTH_EMAIL
     on:
         branch: npm
+notifications:
+  email:
+    recipients:
+      - ericuldall@gmail.com
