@@ -7,3 +7,7 @@ deploy:
     api_key: $NPM_AUTH_TOKEN
     on:
         branch: npm
+notifications:
+  email:
+    recipients:
+      - ericuldall@gmail.com
