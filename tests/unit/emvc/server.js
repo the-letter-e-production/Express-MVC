@@ -1,7 +1,9 @@
 define(function (require) {
     var registerSuite = require('intern!object');
     var assert = require('intern/chai!assert');
-
+    /*var fs = require('intern/dojo/node!fs');
+    var ssl_key = process.env.TEST_KEY || fs.readFileSync('./key.pem');
+    var ssl_cert = process.env.TEST_CERT || fs.readFileSync('./cert.pem'); */
     var q = require('intern/dojo/node!q');
 
     var http = require('intern/dojo/node!http');
@@ -107,7 +109,70 @@ define(function (require) {
                 });
 
                 return deferred.promise;
-            }
+            }/*,
+            'SSL Unrestricted IP': function(){
+                var app = new ExpressMVC.App({
+                    port: 443,
+                    access_logging: false,
+                    ssl: true,
+                    ssl_key: ssl_key,
+                    ssl_cert: ssl_cert,
+                });
+                app.addRouter(router);
+
+                var server = app.listen();
+                
+                var deferred = q.defer();
+
+                request({
+                    method: 'GET',
+                    url: 'https://localhost/'
+                }, function(err, res, body){
+                    server.close();
+                    if( err ){
+                        deferred.reject(err);
+                    }
+                    if( body != "It worked!" ){
+                        deferred.reject('Invalid body text returned!');
+                    }
+
+                    deferred.resolve(true);
+                });
+
+                return deferred.promise;
+            },
+            'SSL Restricted IP': function(){
+                var app = new ExpressMVC.App({
+                    port: 443,
+                    access_logging: false,
+                    ssl: true,
+                    ssl_key: ssl_key,
+                    ssl_cert: ssl_cert,
+                    ip: '127.0.0.2'
+                });
+                app.addRouter(router);
+
+                var server = app.listen();
+                
+                var deferred = q.defer();
+
+                request({
+                    method: 'GET',
+                    url: 'htts://127.0.0.2/'
+                }, function(err, res, body){
+                    server.close();
+                    if( err ){
+                        deferred.reject(err);
+                    }
+                    if( body != "It worked!" ){
+                        deferred.reject('Invalid body text returned!');
+                    }
+
+                    deferred.resolve(true);
+                });
+
+                return deferred.promise;
+            }*/
         }
     });
 });
