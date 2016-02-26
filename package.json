@@ -7,6 +7,7 @@
     "body-parser": "~1.13.2",
     "ejs": "^2.3.3",
     "express": "^4.13.4",
+    "express-winston": "^1.2.0",
     "extend": "^2.0.1",
     "finalhandler": "~0.4.1",
     "fs": "0.0.2",
@@ -16,7 +17,8 @@
     "morgan": "~1.6.0",
     "passport": "~0.2.2",
     "q": "^1.4.1",
-    "request": "^2.69.0"
+    "request": "^2.69.0",
+    "winston": "^2.2.0"
   },
   "devDependencies": {},
   "scripts": {
