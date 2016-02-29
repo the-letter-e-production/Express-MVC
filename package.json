@@ -11,6 +11,7 @@
     "extend": "^2.0.1",
     "finalhandler": "~0.4.1",
     "fs": "0.0.2",
+    "googleapis": "^2.1.7",
     "http": "0.0.0",
     "https": "^1.0.0",
     "intern": "^3.0.6",
