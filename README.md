@@ -12,6 +12,8 @@ Express MVC
  7. <a href="#static">Static Resources</a>
  8. <a href="#middleware">Middleware</a>
  9. <a href="#utils">Utilities</a>
+   9a. <a href="#utils-exception">Exception Util</a>
+   9b. <a href="#utils-log">Log Util</a>
  10. <a href="#unit-testing">Unit Testing Support via Intern</a>
 
 
@@ -244,7 +246,7 @@ var log_util = ExpressMVC.Util.log; //Error logging utilities
     log_util.log('Default console log message');
 ```
 
-*Exception Util in depth...*
+###<a name='utils-exception'></a>Exception Util
 
 ```
 throw exception_util.factory(type, message, code, scope, safe);
@@ -256,7 +258,7 @@ throw exception_util.factory(type, message, code, scope, safe);
 - _scope:_ The scope of the error (public,private). Public scope will show the error message to the end user and private will show an ambiguous error message.
 - _safe:_ A boolean value telling the middleware if it's safe to let your app persist or not. For errors that are minor and you know they are safe, set to true to avoid restarting your app, otherwise set to false and the app will crash
 
-*Log Util in depth...*
+###<a name='utils-log'></a>Log Util
 The log util is an ad hoc logging utility that sits atop [winston](https://www.npmjs.com/package/winston). It is the main utility through which all logs in ExpressMVC itself are generated. We even stream our morgan logs through a winston transport using this utility. Below is a list of all methods available with the logging util.
 
 __Log Levels__
