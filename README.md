@@ -8,13 +8,15 @@ Express MVC
  1. <a href="#routing">Advanced routing</a>
  2. <a href="#controllers">Controllers</a>
  3. <a href="#logging">Access logging</a>
- 6. <a href="#views">Views w/ EJS</a>
- 7. <a href="#static">Static Resources</a>
- 8. <a href="#middleware">Middleware</a>
- 9. <a href="#utils">Utilities</a>
-   9a. <a href="#utils-exception">Exception Util</a>
-   9b. <a href="#utils-log">Log Util</a>
- 10. <a href="#unit-testing">Unit Testing Support via Intern</a>
+ 4. <a href="#views">Views w/ EJS</a>
+ 5. <a href="#static">Static Resources</a>
+ 6. <a href="#middleware">Middleware</a>
+ 7. <a href="#utils">Utilities</a>
+
+    7a. <a href="#utils-exception">Exception Util</a>
+    7b. <a href="#utils-log">Log Util</a>
+
+ 8. <a href="#unit-testing">Unit Testing Support via Intern</a>
 
 
 ----------
