@@ -12,11 +12,8 @@ Express MVC
  5. <a href="#static">Static Resources</a>
  6. <a href="#middleware">Middleware</a>
  7. <a href="#utils">Utilities</a>
-
-    7a. <a href="#utils-exception">Exception Util</a>
-    
-    7b. <a href="#utils-log">Log Util</a>
-
+     7a. <a href="#utils-exception">Exception Util</a>
+     7b. <a href="#utils-log">Log Util</a>
  8. <a href="#unit-testing">Unit Testing Support via Intern</a>
 
 
