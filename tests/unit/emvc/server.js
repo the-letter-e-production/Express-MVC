@@ -31,9 +31,6 @@ define(function (require) {
         'Set Value': function(){
             assert.instanceOf(app.set('foo', 'bar'), ExpressMVC.App);
         },
-        'Set Static Path': function(){
-            assert.instanceOf(app.static('/foo', './bar'), ExpressMVC.App);
-        },
         'Create Router': function(){
             router = new ExpressMVC.Router('/');
             assert.instanceOf(router, ExpressMVC.Router);

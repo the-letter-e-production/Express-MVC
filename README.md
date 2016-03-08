@@ -185,15 +185,11 @@ res.render('view', {foo: 'bar'});
 ```
 
 ## <a name='static'></a>Static Resources ##
-You can easily set up static resources for your app as follows
+You can easily set up static resources for your app just as you do in Express, as follows
 ```
-app.static('static/css', '/css'); //./static/css -> /css
-app.static('static/images', '/images'); //./static/images -> /images
-app.static('static/fonts', '/fonts'); //./static/fonts -> /fonts
-app.static('static/icons', '/icons'); //./static/icons -> /icons
-app.static('static/js', '/js'); //./static/js -> /js
-app.static('static/libs', '/libs'); //./static/libs -> /libs
-app.static('static/views', '/views'); //./static/views -> /views
+app.use(ExpressMVC.Util.express.static('static_dir'));
+//or
+app.use('/static', ExpressMVC.Util.express.static('static_dir'));
 ```
 
 ## <a name='middleware'></a>Middleware ##
