@@ -39,5 +39,8 @@
   "bugs": {
     "url": "https://github.com/the-letter-e-production/Express-MVC/issues"
   },
-  "homepage": "https://github.com/the-letter-e-production/Express-MVC"
+  "homepage": "https://github.com/the-letter-e-production/Express-MVC",
+  "bin": {
+    "emvc": "bin/emvc.js"
+  }
 }
