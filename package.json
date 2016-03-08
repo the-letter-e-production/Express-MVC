@@ -1,6 +1,6 @@
 {
   "name": "express_mvc",
-  "version": "4.2.12",
+  "version": "4.3.0",
   "description": "MVC Framework built on express",
   "main": "index.js",
   "dependencies": {
