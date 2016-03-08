@@ -1,0 +1,16 @@
+.center {
+    text-align: center;
+    padding: 30px;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.vars {
+    background: #000;
+    color: #fff;
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
+}

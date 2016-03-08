@@ -4,7 +4,7 @@
   "description": "ExpressMVC Bootstrap",
   "main": "app.js",
   "dependencies": {
-    "express_mvc": "4.x"
+    "express_mvc": "^4.3.0"
   },
   "devDependencies": {},
   "scripts": {

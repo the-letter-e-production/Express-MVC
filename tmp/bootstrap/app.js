@@ -48,7 +48,7 @@ router.addRoute(
  * Add a route with a view and static files
  *
  */
-app.static('static');
+app.use('/static', ExpressMVC.Util.express.static('static'));
 app.set('view engine', 'ejs'); //allow views with ejs
 router.addRoute( //add the route
     new router.Route('GET', '/view', function(req, res){
