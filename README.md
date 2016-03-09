@@ -15,6 +15,7 @@ Express MVC
   1. <a href="#utils-exception">Exception Util</a>
   2. <a href="#utils-log">Log Util</a>
  8. <a href="#unit-testing">Unit Testing Support via Intern</a>
+ 9. <a href="#cmd">Command Line Utility</a>
 
 
 ----------
@@ -382,6 +383,22 @@ To fix the issue simply add a `path` argument to your intern configuration and E
 ```
 
 That's all there is to it! Now during your tests, ExpressMVC.Util.dir.approot() will return `/absolute/path/to/my/app`. Enjoy increased code coverage with [Intern](https://theintern.github.io/) today!
+
+
+## <a name='cmd'></a>Command Line Utility ##
+If you are looking for a fast way to get up and running with ExpressMVC you can simply install the npm module globally and use the `emvc` command line util.
+
+Install globally:
+```
+npm install -g express_mvc
+```
+
+Run the bootstrap command:
+```
+emvc bootstrap my-app
+```
+
+This will place a ready to use app in your current working directory. Simply cd into the app folder and run `node app.js`
 
 
 
