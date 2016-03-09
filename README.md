@@ -1,7 +1,7 @@
 Express MVC 
 =======
 
-![build status](https://api.travis-ci.org/the-letter-e-production/Express-MVC.svg?branch=npm)
+[![build status](https://api.travis-ci.org/the-letter-e-production/Express-MVC.svg?branch=npm)](https://travis-ci.org/the-letter-e-production/Express-MVC "Travis CI") [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/the-letter-e-production/Express-MVC.svg)](http://isitmaintained.com/project/the-letter-e-production/Express-MVC "Average time to resolve an issue") [![Percentage of issues still open](http://isitmaintained.com/badge/open/the-letter-e-production/Express-MVC.svg)](http://isitmaintained.com/project/the-letter-e-production/Express-MVC "Percentage of issues still open")
 
 ## Features ##
 
