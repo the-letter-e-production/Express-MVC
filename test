@@ -1,2 +1,2 @@
 #!/bin/sh
-./node_modules/.bin/intern-client config=tests/intern.js path=/var/node/soylent_d/soylent
+./node_modules/.bin/intern-client config=tests/intern.js path=/var/node/Express-MVC

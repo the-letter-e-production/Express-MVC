@@ -16,6 +16,7 @@ define({
     suites: [
         'tests/unit/emvc',
         'tests/unit/emvc/server',
+        'tests/unit/emvc/util/dir'
     ],
     reporters: ['Pretty'],
 
