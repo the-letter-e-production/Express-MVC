@@ -91,7 +91,8 @@ You are not required to provide a callback function to the `Route` object, in fa
  2. **Magic** Controller's
  3. Multiple Routers
 
-## <a name='routing'></a>Advanced Routing ##
+<a name='routing'></a>
+## Advanced Routing ##
 All controllers are assumed to be in the app root in a directory called, `controllers`, this is the only restriction of controllers locations.
 
 **Controller Path**:
@@ -137,7 +138,8 @@ app.addRouter(router_b);
 app.listen();
 ```
 
-## <a name='controllers'></a><a href="#controllers">Controllers</a> ##
+<a name='controllers'></a>
+## Controllers ##
 Controllers are created in the same way as an express controller using the `function(req, res)` syntax, with 1 subtle difference... method grouping.
 
 Take for example, the following routing setup
@@ -169,12 +171,14 @@ module.exports = function(req, res){};
 
 Both syntax will work without any configuration by you!
 
-## <a name='logging'></a><a href="#logging">Access Logging</a> ##
+<a name='logging'></a>
+## Access Logging ##
 Access logging is managed by [morgan](https://github.com/expressjs/morgan%20morgan)
 
 Currently access logging does not offer much customization, but more may be added upon request
 
-## <a name='views'></a><a href="#views">Views w/ EJS</a> ##
+<a name='views'></a>
+## Views w/ EJS ##
 Currently Express MVC is set up to work with EJS by default and we've made it quite easy to do. Simply add the following to your app...
 ```
 app.set('view engine', 'ejs');
@@ -185,7 +189,8 @@ You can then render views stored in `./views`
 res.render('view', {foo: 'bar'});
 ```
 
-## <a name='static'></a><a href="#static">Static Resources</a> ##
+<a name='static'></a>
+## Static Resources ##
 You can easily set up static resources for your app just as you do in Express, as follows
 ```
 app.use(ExpressMVC.Util.express.static('static_dir'));
@@ -193,7 +198,8 @@ app.use(ExpressMVC.Util.express.static('static_dir'));
 app.use('/static', ExpressMVC.Util.express.static('static_dir'));
 ```
 
-## <a name='middleware'></a><a href="#middleware">Middleware</a> ##
+<a name='middleware'></a>
+## Middleware ##
 We have simply exposed the standard middleware implementation from Express.JS and you can use it as you normally would at the app and router level...
 ```
 //app middleware
@@ -228,7 +234,8 @@ router.use(function(req, res, next){
 });
 ```
 
-## <a name='utils'></a><a href="#utils">Utilities</a> ##
+<a name='utils'></a>
+## Utilities ##
 ExpressMVC comes with some nifty utilities that are used internally and we've made available for consumption. These utilities will continue to grow as needed. Check out the current utilities below:
 
 ```
@@ -243,7 +250,8 @@ var log_util = ExpressMVC.Util.log; //Error logging utilities
     log_util.log('Default console log message');
 ```
 
-###<a name='utils-exception'></a><a href="#utils-exception">Exception Util</a> ###
+<a name='utils-exception'></a>
+### Exception Util ###
 
 ```
 throw exception_util.factory(type, message, code, scope, safe);
@@ -255,7 +263,8 @@ throw exception_util.factory(type, message, code, scope, safe);
 - _scope:_ The scope of the error (public,private). Public scope will show the error message to the end user and private will show an ambiguous error message.
 - _safe:_ A boolean value telling the middleware if it's safe to let your app persist or not. For errors that are minor and you know they are safe, set to true to avoid restarting your app, otherwise set to false and the app will crash
 
-###<a name='utils-log'></a><a href="#utils-log">Log Util</a> ###
+<a name='utils-log'></a>
+###Log Util ###
 The log util is an ad hoc logging utility that sits atop [winston](https://www.npmjs.com/package/winston). It is the main utility through which all logs in ExpressMVC itself are generated. We even stream our morgan logs through a winston transport using this utility. Below is a list of all methods available with the logging util.
 
 __Log Levels__
@@ -371,8 +380,8 @@ process.env.GOOGLE_LOGGING = true;
 ```
 
 
-
-## <a name='unit-testing'></a><a href="#unit-testing">Unit Testing Support</a> ##
+<a name='unit-testing'></a>
+## Unit Testing Support ##
 Here at ExpressMVC we are working on making your CI lifecycle easier than ever and we've started by adding InternJS awareness to our Directory Utility. Currently `ExpressMVC.Util.dir.approot()` pulls the approot by using process.argv[1], which we've found is reliable in most circumstances, however when running unit tests with Intern that path becomes the location of the intern-client file and breaks all of our approot() dependencies.
 
 To fix the issue simply add a `path` argument to your intern configuration and ExpressMVC will override approot accordingly!
@@ -384,8 +393,8 @@ To fix the issue simply add a `path` argument to your intern configuration and E
 
 That's all there is to it! Now during your tests, ExpressMVC.Util.dir.approot() will return `/absolute/path/to/my/app`. Enjoy increased code coverage with [Intern](https://theintern.github.io/) today!
 
-
-## <a name='cmd'></a>Command Line Utility ##
+<a name='cmd'></a>
+## Command Line Utility ##
 If you are looking for a fast way to get up and running with ExpressMVC you can simply install the npm module globally and use the `emvc` command line util.
 
 Install globally:
